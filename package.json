@@ -1,0 +1,8 @@
+{
+  "name": "tetris-game",
+  "version": "1.0.0",
+  "description": "Simple browser-based Tetris game",
+  "scripts": {
+    "test": "node test.js"
+  }
+}
