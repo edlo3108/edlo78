@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8" />
-    <title>Tetris</title>
+    <title>中國象棋</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="score">0</div>
-    <canvas id="tetris" width="240" height="400"></canvas>
+    <div id="menu">
+        <h1>中國象棋</h1>
+        <div>
+            <button id="vsHuman">真人對戰</button>
+            <button id="vsAI">電腦對戰</button>
+        </div>
+        <div id="difficulty" style="display:none;">
+            <p>選擇難度:</p>
+            <button data-level="easy">小學級</button>
+            <button data-level="hard">大學級</button>
+        </div>
+    </div>
+    <canvas id="board" width="450" height="500" style="display:none;"></canvas>
     <script src="script.js"></script>
 </body>
 </html>
