@@ -2,23 +2,45 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8" />
-    <title>中國象棋</title>
+    <title>股票買賣時機分析器</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="menu">
-        <h1>中國象棋</h1>
-        <div>
-            <button id="vsHuman">真人對戰</button>
-            <button id="vsAI">電腦對戰</button>
-        </div>
-        <div id="difficulty" style="display:none;">
-            <p>選擇難度:</p>
-            <button data-level="easy">小學級</button>
-            <button data-level="hard">大學級</button>
-        </div>
-    </div>
-    <canvas id="board" width="450" height="500" style="display:none;"></canvas>
+    <main class="container">
+        <header>
+            <h1>股票買賣時機分析器</h1>
+            <p class="subtitle">輸入每日收盤價，找出最適合的買賣時機。</p>
+        </header>
+
+        <section class="card">
+            <form id="analyzerForm" novalidate>
+                <div class="field">
+                    <label for="prices">股價資料</label>
+                    <textarea id="prices" rows="6" placeholder="例如：100, 102, 98, 110, 105 或貼上每行一個價格"></textarea>
+                    <p class="hint">支援逗號、空白或換行分隔，僅需輸入正數。</p>
+                </div>
+                <div class="form-row">
+                    <label class="option">
+                        交易上限
+                        <input type="number" id="tradeLimit" value="1" min="1" max="10" />
+                    </label>
+                    <label class="option">
+                        最小價差 (過濾雜訊)
+                        <input type="number" id="minSpread" value="0" min="0" step="0.01" />
+                    </label>
+                </div>
+                <button type="submit" class="primary">開始分析</button>
+                <p id="error" role="alert" class="error" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section id="results" class="card hidden" aria-live="polite">
+            <h2>分析結果</h2>
+            <div id="summary" class="summary"></div>
+            <div id="trades"></div>
+            <div id="stats"></div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
